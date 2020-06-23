@@ -19,6 +19,8 @@ class General_model extends CI_Model
     return $data;
   }
 
+
+  //Function
   public function login()
   {
     $input = $this->input->post();
