@@ -50,13 +50,13 @@ class Core_model extends CI_Model
 
   public function getNumRows($table, $whereVar, $whereVal )
   {
-    // $list = $this->db->list_fields($table);
-    // foreach ($list as $item)
-    // {
-    //   $this->db->or_like($item, $this->input->post('keyword'));
-    // }
-    // $data = $this->db->get($table);
     $data = $this->db->get_where($table, $where = array($whereVar => $whereVal ));
+    return $data->num_rows();
+  }
+
+  public function getNumRows2($table, $whereVar1, $whereVal1, $whereVar2, $whereVal2 )
+  {
+    $data = $this->db->get_where($table, $where = array($whereVar1 => $whereVal1,$whereVar2 => $whereVal2));
     return $data->num_rows();
   }
 
