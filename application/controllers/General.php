@@ -8,6 +8,12 @@ class General extends CI_Controller {
 		$this->load->view('welcome_message');
 	}
 
+	public function template()
+	{
+		$data['viewName'] = 'blank';
+		$this->load->view('template', $data);
+	}
+
 	public function error()
 	{
 		$this->load->view('errors/404');
