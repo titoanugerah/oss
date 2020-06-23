@@ -266,8 +266,8 @@ class Master_model extends CI_Model
   public function ContentaddEvent()
   {
     $data['viewName'] = 'master/addEvent';
-    $data['role'] = $this->core_model->getAllData('role');
-    $data['department'] = $this->core_model->getAllData('department');
+    $data['event'] = $this->core_model->getAllData('view_event');
+    $data['eventType'] = $this->core_model->getAllData('eventtype');
     return $data;
   }
 
@@ -294,17 +294,34 @@ class Master_model extends CI_Model
 
   public function createEvent()
   {
-    $data = array(
-    'name' => $this->input->post('name'),
-    'username' => $this->input->post('username'),
-    'password' => $this->input->post('password'),
-    'phone' => $this->input->post('phone'),
-    'role_id' => $this->input->post('role_id'),
-    'department_id' => $this->input->post('department_id')
-    );
-    $this->db->insert('event', $data);
-    redirect(base_url('event'));
+    $count = $this->db->query(' select * from view_event where id>='.$this->input->post('start_time').' and id<='.$this->input->post('end_time').' and event_type_id = null');
+    if ($count->num_rows()==0) {
+      // $data = array(
+      // 'name' => $this->input->post('name'),
+      // 'event_type_id' => $this->input->post('event_type_id'),
+      // 'remark' => $this->input->post('remark')
+      // );
+      // $where = array('' => , );
+      $this->db->query(' update event set name = "'.$this->input->post('name').'", event_type_id = '.$this->input->post('event_type_id').', remark ="'.$this->input->post('remark').'" where id>='.$this->input->post('start_time').' and id<='.$this->input->post('end_time'));
+      redirect(base_url('event'));
+    } else {
+      $this->notify('Gagal', 'Booking jadwal gagal dilakukan, sudah ada jadwal yang terbooking','danger', 'fa fa-times','event');
+    }
+
+
   }
+
+function notify($title, $message, $type, $icon, $redirect)
+{
+  // $ci = &get_instance();
+  $this->session->set_flashdata('notify', true);
+  $this->session->set_flashdata('title', $title);
+  $this->session->set_flashdata('message', $message);
+  $this->session->set_flashdata('type', $type);
+  $this->session->set_flashdata('icon', $icon);
+  if ($redirect!=null) {redirect(base_url($redirect));}
+}
+
 
 
 }

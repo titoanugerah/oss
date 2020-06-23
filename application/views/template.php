@@ -232,19 +232,20 @@ if(file_exists('./assets/script/'.$viewName.'.js'))
 ?>
 
 <script type="text/javascript">
+//Notify
+<?php if($this->session->userdata('notify')){
+	echo "notify('".$this->session->userdata['icon']."','".$this->session->userdata['title']."','".$this->session->userdata['message']."','".$this->session->userdata['type']."')";
+} ?>
 
 	$(document).ready(function() {
 		$('.js-example-basic-single').select2();
 		$('.select2-modal').select2();
 	});
 	$('.datatable').DataTable({
-		"order" : "asc"
+//		"order" : "asc"
+"order": [[ 5, "asc" ]]
 	});
 
-	//Notify
-	<?php if($this->session->userdata('notify')){
-		echo "notify('".$this->session->userdata['icon']."','".$this->session->userdata['title']."','".$this->session->userdata['message']."','".$this->session->userdata['type']."')";
-	} ?>
 </script>
 </body>
 </html>
