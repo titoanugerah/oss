@@ -75,16 +75,16 @@
 							<a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
 								<div class="avatar-sm">
 										<input type="text" id="islogin" value="<?php echo $this->session->userdata('islogin'); ?>" hidden>
-									<img src="<?php if(!$this->session->userdata('islogin')){echo base_url('assets/picture/user.jpg');} else { echo $this->session->userdata('Image');}?>" alt="..." class="avatar-img rounded-circle">
+									<img src="<?php echo base_url('assets/picture/user.jpg');?>" alt="..." class="avatar-img rounded-circle">
 								</div>
 							</a>
 							<ul class="dropdown-menu dropdown-user animated fadeIn" >
 								<div class="dropdown-user-scroll scrollbar-outer" <?php if(!$this->session->userdata('islogin')){echo "hidden";}?>>
 									<li>
 										<div class="user-box">
-											<div class="avatar-lg"><img src="<?php echo $this->session->userdata('Image'); ?>" alt="image profile" class="avatar-img rounded"></div>
+											<div class="avatar-lg"><img src="<?php echo base_url('assets/picture/user.jpg'); ?>" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
-												<h4><?php echo $this->session->userdata('Fullname'); ?></h4>
+												<h4><?php echo $this->session->userdata('name'); ?></h4>
 												<p class="text-muted"><?php echo $this->session->userdata('Email') ?></p><a href="<?php echo base_url('profile'); ?>" class="btn btn-xs btn-secondary btn-sm">Lihat Profil</a>
 											</div>
 										</div>
@@ -141,12 +141,12 @@
 		<div class="sidebar-content">
 			<div class="user">
 				<div class="avatar-sm float-left mr-2">
-					<img src="<?php if(!$this->session->userdata('islogin')){echo base_url('assets/picture/user.jpg');} else { echo $this->session->userdata('Image');}?>" alt="..." class="avatar-img rounded-circle">
+					<img src="<?php echo base_url('assets/picture/user.jpg');?>" alt="..." class="avatar-img rounded-circle">
 				</div>
 				<div class="info">
 					<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 						<span>
-							<?php if(!$this->session->userdata('islogin')){echo "Belum Login"; } else {echo $this->session->userdata('Fullname');} ?>
+							<?php if(!$this->session->userdata('islogin')){echo "Belum Login"; } else {echo $this->session->userdata('name');} ?>
 							<span class="user-level"><?php if(!$this->session->userdata('islogin')){echo "Belum Login"; } else {echo $this->session->userdata('Role');} ?></span>
 							<span class="caret"></span>
 						</span>
@@ -170,7 +170,7 @@
 				</div>
 			</div>
 			<ul class="nav nav-primary">
-				<?php if($this->session->userdata('islogin')){$this->load->view('menu/'.$this->session->userdata('Role'));} ?>
+				<?php if($this->session->userdata('islogin')){$this->load->view('menu/'.strtolower($this->session->userdata('role')));} ?>
 			</ul>
 		</div>
 	</div>
