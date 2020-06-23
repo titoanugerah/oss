@@ -256,10 +256,14 @@ class Master_model extends CI_Model
 
   public function contentEditEvent($id)
   {
-    $data['event'] = $this->core_model->getSingleData('view_event', 'id', $id);
-    $data['role'] = $this->core_model->getAllData('role');
-    $data['department'] = $this->core_model->getAllData('department');
+//    $data['event'] = $this->core_model->getSingleData('view_detail_event', 'id', $id);
+    $data['id'] = $id;
+    $query = 'select * from view_detail_event where start_id>='.$id.' and end_id<='.$id;
+    $data['query'] = $this->db->query($query);
+    $data['event'] = $data['query']->row();
+    $data['eventType'] = $this->core_model->getAllData('eventtype');
     $data['viewName'] = 'master/editEvent';
+    var_dump($data['query']);die;
     return $data;
   }
 
