@@ -39,4 +39,35 @@ class Master extends CI_Controller {
 		$this->master_model->createDepartment();
 	}
 
+	public function eventType()
+	{
+		$this->load->view('template', $this->master_model->contentEventType());
+	}
+
+	public function addEventType()
+	{
+		$this->load->view('template', $this->master_model->contentAddEventType());
+	}
+
+	public function editEventType($id)
+	{
+		$this->load->view('template', $this->master_model->contentEditEventType($id));
+	}
+
+	public function updateEventType($id)
+	{
+		$this->master_model->updateEventType($id);
+	}
+
+	public function deleteEventType($id)
+	{
+		$this->master_model->deleteEventType($id);
+	}
+
+	public function createEventType()
+	{
+		$this->master_model->createEventType();
+	}
+
+
 }

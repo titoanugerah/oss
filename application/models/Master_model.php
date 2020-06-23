@@ -56,6 +56,54 @@ class Master_model extends CI_Model
     redirect(base_url('department'));
   }
 
+
+  public function contentEventType()
+  {
+    $data['eventType'] = $this->core_model->getAllData('eventType');
+    $data['viewName'] = 'master/eventType';
+    return $data;
+  }
+
+  public function contentEditEventType($id)
+  {
+    $data['eventType'] = $this->core_model->getSingleData('eventType', 'id', $id);
+    $data['viewName'] = 'master/editEventType';
+    return $data;
+  }
+
+  public function ContentaddEventType()
+  {
+    $data['viewName'] = 'master/addEventType';
+    return $data;
+  }
+
+  public function updateEventType($id)
+  {
+    $data = array(
+      'name' => $this->input->post('name'),
+      'description' => $this->input->post('description'),
+    );
+    $this->db->where($where = array('id' => $id ));
+    $this->db->update('eventType', $data);
+    redirect(base_url('editEventType/'.$id));
+  }
+
+  public function deleteEventType($id)
+  {
+    $this->core_model->deleteData('eventType', 'id', $id);
+    redirect(base_url('eventType'));
+  }
+
+  public function createEventType()
+  {
+    $data = array(
+      'name' => $this->input->post('name'),
+      'description' => $this->input->post('description'),
+    );
+    $this->db->insert('eventType', $data);
+    redirect(base_url('eventType'));
+  }
+
 }
 
  ?>
