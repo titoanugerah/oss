@@ -263,7 +263,8 @@ class Master_model extends CI_Model
     $data['event'] = $data['query']->row();
     $data['eventType'] = $this->core_model->getAllData('eventtype');
     $data['viewName'] = 'master/editEvent';
-    var_dump($data['query']);die;
+//    var_dump($data['query']->result());die;
+    var_dump($query);die;
     return $data;
   }
 
