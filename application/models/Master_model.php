@@ -130,7 +130,7 @@ class Master_model extends CI_Model
     $data['department'] = $this->core_model->getAllData('department');
     return $data;
   }
-  //NG
+
   public function updateManpower($id)
   {
     $data = array(
@@ -143,7 +143,7 @@ class Master_model extends CI_Model
     );
     $this->db->where($where = array('id' => $id ));
     $this->db->update('manpower', $data);
-    redirect(base_url('editManpower/'.$id));
+    redirect(base_url('manpower'.$id));
   }
 
   public function deleteManpower($id)
@@ -244,6 +244,68 @@ class Master_model extends CI_Model
     $this->core_model->deleteData('alocation', 'id', $id);
     redirect(base_url('alocation'));
   }
+
+
+  //event
+  public function contentEvent()
+  {
+    $data['event'] = $this->core_model->getAllData('view_event');
+    $data['viewName'] = 'master/event';
+    return $data;
+  }
+
+  public function contentEditEvent($id)
+  {
+    $data['event'] = $this->core_model->getSingleData('view_event', 'id', $id);
+    $data['role'] = $this->core_model->getAllData('role');
+    $data['department'] = $this->core_model->getAllData('department');
+    $data['viewName'] = 'master/editEvent';
+    return $data;
+  }
+
+  public function ContentaddEvent()
+  {
+    $data['viewName'] = 'master/addEvent';
+    $data['role'] = $this->core_model->getAllData('role');
+    $data['department'] = $this->core_model->getAllData('department');
+    return $data;
+  }
+
+  public function updateEvent($id)
+  {
+    $data = array(
+    'name' => $this->input->post('name'),
+    'username' => $this->input->post('username'),
+    'password' => $this->input->post('password'),
+    'phone' => $this->input->post('phone'),
+    'role_id' => $this->input->post('role_id'),
+    'department_id' => $this->input->post('department_id')
+    );
+    $this->db->where($where = array('id' => $id ));
+    $this->db->update('event', $data);
+    redirect(base_url('event'.$id));
+  }
+
+  public function deleteEvent($id)
+  {
+    $this->core_model->deleteData('event', 'id', $id);
+    redirect(base_url('event'));
+  }
+
+  public function createEvent()
+  {
+    $data = array(
+    'name' => $this->input->post('name'),
+    'username' => $this->input->post('username'),
+    'password' => $this->input->post('password'),
+    'phone' => $this->input->post('phone'),
+    'role_id' => $this->input->post('role_id'),
+    'department_id' => $this->input->post('department_id')
+    );
+    $this->db->insert('event', $data);
+    redirect(base_url('event'));
+  }
+
 
 }
 

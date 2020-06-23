@@ -38,6 +38,12 @@ $route['editAlocation/(:any)'] = 'master/editAlocation/$1';
 $route['updateAlocation/(:any)'] = 'master/updateAlocation/$1';
 $route['deleteAlocation/(:any)'] = 'master/deleteAlocation/$1';
 
+$route['event'] = 'master/event';
+$route['addEvent'] = 'master/addEvent';
+$route['createEvent'] = 'master/createEvent';
+$route['editEvent/(:any)'] = 'master/editEvent/$1';
+$route['updateEvent/(:any)'] = 'master/updateEvent/$1';
+$route['deleteEvent/(:any)'] = 'master/deleteEvent/$1';
 
 
 $route['404_override'] = 'general/error';

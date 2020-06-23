@@ -237,7 +237,9 @@ if(file_exists('./assets/script/'.$viewName.'.js'))
 		$('.js-example-basic-single').select2();
 		$('.select2-modal').select2();
 	});
-	$('.datatable').DataTable();
+	$('.datatable').DataTable({
+		"order" : "asc"
+	});
 
 	//Notify
 	<?php if($this->session->userdata('notify')){

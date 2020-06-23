@@ -102,6 +102,7 @@ class Master extends CI_Controller {
 		$this->master_model->createManpower();
 	}
 
+	//alocation
 	public function alocation()
 	{
 		$this->load->view('template', $this->master_model->contentAlocation());
@@ -130,6 +131,37 @@ class Master extends CI_Controller {
 	public function deleteAlocation($id)
 	{
 		$this->master_model->deleteAlocation($id);
+	}
+
+	//event
+	public function event()
+	{
+		$this->load->view('template', $this->master_model->contentEvent());
+	}
+
+	public function addEvent()
+	{
+		$this->load->view('template', $this->master_model->contentAddEvent());
+	}
+
+	public function createEvent()
+	{
+		$this->load->view('template', $this->master_model->createEvent());
+	}
+
+	public function editEvent($id)
+	{
+		$this->load->view('template', $this->master_model->contentEditEvent($id));
+	}
+
+	public function updateEvent($id)
+	{
+		$this->master_model->updateEvent($id);
+	}
+
+	public function deleteEvent($id)
+	{
+		$this->master_model->deleteEvent($id);
 	}
 
 }

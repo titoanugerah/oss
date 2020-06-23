@@ -52,7 +52,6 @@
             <div class="card-footer">
               <button type="submit" name="button" class="btn btn-success">Simpan</button>
               <a class="btn btn-grey" href="<?php echo base_url('alocation') ?>">Kembali</a>
-              <a class="btn btn-grey" href="<?php echo base_url('alocation') ?>">Kembali</a>
               <a class="btn btn-danger pull-right" href="<?php echo base_url('deleteAlocation/'.$alocation->id) ?>">Hapus</a>
 
             </div>

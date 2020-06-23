@@ -28,3 +28,9 @@
     <p>Alokasi Pekerja</p>
   </a>
 </li>
+<li class="nav-item " >
+  <a href="<?php echo base_url('event'); ?>">
+    <i class="fas fa-clock"></i>
+    <p>Kegiatan</p>
+  </a>
+</li>
