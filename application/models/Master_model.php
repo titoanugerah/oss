@@ -57,6 +57,7 @@ class Master_model extends CI_Model
   }
 
 
+  //EventType
   public function contentEventType()
   {
     $data['eventType'] = $this->core_model->getAllData('eventType');
@@ -103,6 +104,67 @@ class Master_model extends CI_Model
     $this->db->insert('eventType', $data);
     redirect(base_url('eventType'));
   }
+
+
+    //Manpower
+    public function contentManpower()
+    {
+      $data['manpower'] = $this->core_model->getAllData('view_manpower');
+      $data['viewName'] = 'master/manpower';
+      return $data;
+    }
+
+    public function contentEditManpower($id)
+    {
+      $data['manpower'] = $this->core_model->getSingleData('view_manpower', 'id', $id);
+      $data['role'] = $this->core_model->getAllData('role');
+      $data['department'] = $this->core_model->getAllData('department');
+      $data['viewName'] = 'master/editManpower';
+      return $data;
+    }
+
+    public function ContentaddManpower()
+    {
+      $data['viewName'] = 'master/addManpower';
+      $data['role'] = $this->core_model->getAllData('role');
+      $data['department'] = $this->core_model->getAllData('department');
+      return $data;
+    }
+    //NG
+    public function updateManpower($id)
+    {
+      $data = array(
+        'name' => $this->input->post('name'),
+        'username' => $this->input->post('username'),
+        'password' => $this->input->post('password'),
+        'phone' => $this->input->post('phone'),
+        'role_id' => $this->input->post('role_id'),
+        'department_id' => $this->input->post('department_id')
+       );
+      $this->db->where($where = array('id' => $id ));
+      $this->db->update('manpower', $data);
+      redirect(base_url('editManpower/'.$id));
+    }
+
+    public function deleteManpower($id)
+    {
+      $this->core_model->deleteData('manpower', 'id', $id);
+      redirect(base_url('manpower'));
+    }
+
+    public function createManpower()
+    {
+      $data = array(
+        'name' => $this->input->post('name'),
+        'username' => $this->input->post('username'),
+        'password' => $this->input->post('password'),
+        'phone' => $this->input->post('phone'),
+        'role_id' => $this->input->post('role_id'),
+        'department_id' => $this->input->post('department_id')
+       );
+      $this->db->insert('manpower', $data);
+      redirect(base_url('manpower'));
+    }
 
 }
 

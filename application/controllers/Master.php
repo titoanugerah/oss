@@ -39,6 +39,8 @@ class Master extends CI_Controller {
 		$this->master_model->createDepartment();
 	}
 
+	//eventType
+
 	public function eventType()
 	{
 		$this->load->view('template', $this->master_model->contentEventType());
@@ -68,6 +70,38 @@ class Master extends CI_Controller {
 	{
 		$this->master_model->createEventType();
 	}
+
+	//manpower
+	public function manpower()
+	{
+		$this->load->view('template', $this->master_model->contentManpower());
+	}
+
+	public function addManpower()
+	{
+		$this->load->view('template', $this->master_model->contentAddManpower());
+	}
+
+	public function editManpower($id)
+	{
+		$this->load->view('template', $this->master_model->contentEditManpower($id));
+	}
+
+	public function updateManpower($id)
+	{
+		$this->master_model->updateManpower($id);
+	}
+
+	public function deleteManpower($id)
+	{
+		$this->master_model->deleteManpower($id);
+	}
+
+	public function createManpower()
+	{
+		$this->master_model->createManpower();
+	}
+
 
 
 }

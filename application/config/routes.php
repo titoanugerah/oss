@@ -24,6 +24,15 @@ $route['editEventType/(:any)'] = 'master/editEventType/$1';
 $route['updateEventType/(:any)'] = 'master/updateEventType/$1';
 $route['deleteEventType/(:any)'] = 'master/deleteEventType/$1';
 
+$route['manpower'] = 'master/manpower';
+$route['addManpower'] = 'master/addManpower';
+$route['createManpower'] = 'master/createManpower';
+$route['editManpower/(:any)'] = 'master/editManpower/$1';
+$route['updateManpower/(:any)'] = 'master/updateManpower/$1';
+$route['deleteManpower/(:any)'] = 'master/deleteManpower/$1';
+
+
+
 
 $route['404_override'] = 'general/error';
 $route['translate_uri_dashes'] = FALSE;
