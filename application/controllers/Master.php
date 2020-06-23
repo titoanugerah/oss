@@ -102,6 +102,34 @@ class Master extends CI_Controller {
 		$this->master_model->createManpower();
 	}
 
+	public function alocation()
+	{
+		$this->load->view('template', $this->master_model->contentAlocation());
+	}
 
+	public function addAlocation()
+	{
+		$this->load->view('template', $this->master_model->contentAddAlocation());
+	}
+
+	public function createAlocation()
+	{
+		$this->load->view('template', $this->master_model->createAlocation());
+	}
+
+	public function editAlocation($id)
+	{
+		$this->load->view('template', $this->master_model->contentEditAlocation($id));
+	}
+
+	public function updateAlocation($id)
+	{
+		$this->master_model->updateAlocation($id);
+	}
+
+	public function deleteAlocation($id)
+	{
+		$this->master_model->deleteAlocation($id);
+	}
 
 }

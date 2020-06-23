@@ -22,3 +22,9 @@
     <p>Pekerja</p>
   </a>
 </li>
+<li class="nav-item " >
+  <a href="<?php echo base_url('alocation'); ?>">
+    <i class="fas fa-users"></i>
+    <p>Alokasi Pekerja</p>
+  </a>
+</li>

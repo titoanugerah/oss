@@ -31,6 +31,12 @@ $route['editManpower/(:any)'] = 'master/editManpower/$1';
 $route['updateManpower/(:any)'] = 'master/updateManpower/$1';
 $route['deleteManpower/(:any)'] = 'master/deleteManpower/$1';
 
+$route['alocation'] = 'master/alocation';
+$route['addAlocation'] = 'master/addAlocation';
+$route['createAlocation'] = 'master/createAlocation';
+$route['editAlocation/(:any)'] = 'master/editAlocation/$1';
+$route['updateAlocation/(:any)'] = 'master/updateAlocation/$1';
+$route['deleteAlocation/(:any)'] = 'master/deleteAlocation/$1';
 
 
 
