@@ -13,6 +13,12 @@ class General_model extends CI_Model
     $this->load->model('core_model');
   }
 
+  public function contentProfile()
+  {
+    $data['viewName'] = 'profile';
+    return $data;
+  }
+
   public function login()
   {
     $input = $this->input->post();

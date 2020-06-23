@@ -85,7 +85,7 @@
 											<div class="avatar-lg"><img src="<?php echo base_url('assets/picture/user.jpg'); ?>" alt="image profile" class="avatar-img rounded"></div>
 											<div class="u-text">
 												<h4><?php echo $this->session->userdata('name'); ?></h4>
-												<p class="text-muted"><?php echo $this->session->userdata('Email') ?></p><a href="<?php echo base_url('profile'); ?>" class="btn btn-xs btn-secondary btn-sm">Lihat Profil</a>
+												<p class="text-muted"><?php echo $this->session->userdata('username') ?></p><a href="<?php echo base_url('profile'); ?>" class="btn btn-xs btn-secondary btn-sm">Lihat Profil</a>
 											</div>
 										</div>
 									</li>

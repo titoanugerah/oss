@@ -15,6 +15,11 @@ class General extends CI_Controller {
 		$this->load->view('template', $data);
 	}
 
+	public function profile()
+	{
+		$this->load->view('template', $this->general_model->contentProfile());
+	}
+
 	public function template()
 	{
 		$data['viewName'] = 'blank';
