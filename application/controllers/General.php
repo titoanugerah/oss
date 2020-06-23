@@ -31,6 +31,11 @@ class General extends CI_Controller {
 		$this->load->view('errors/404');
 	}
 
+	public function updateProfile()
+	{
+		$this->general_model->updateProfile();
+	}
+
 	public function login()
 	{
 		echo $this->general_model->login();

@@ -147,7 +147,7 @@
 					<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 						<span>
 							<?php if(!$this->session->userdata('islogin')){echo "Belum Login"; } else {echo $this->session->userdata('name');} ?>
-							<span class="user-level"><?php if(!$this->session->userdata('islogin')){echo "Belum Login"; } else {echo $this->session->userdata('Role');} ?></span>
+							<span class="user-level"><?php if(!$this->session->userdata('islogin')){echo "Belum Login"; } else {echo $this->session->userdata('department');} ?></span>
 							<span class="caret"></span>
 						</span>
 					</a>

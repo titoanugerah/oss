@@ -15,42 +15,53 @@
     <div class="col-md-12">
       <div class="row">
 
-      <div class="card full-height  col-md-12">
-        <div class="card-header">
-          <div class="card-title">Identitas Pekerja</div>
-          <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
+        <div class="card full-height  col-md-12">
+          <form class="" action="updateProfile" method="post">
 
-          </div>
-          <div class="card-body">
-            <div class="row">
-              <div class="form-group col-md-6">
-                <label>Nama Karyawan</label>
-                <input type="text" class="form-control" id="Id" value="<?php echo $this->session->userdata['name'] ?>">
-              </div>
-              <div class="form-group col-md-6">
-                <label>username</label>
-                <input type="email" class="form-control" id="username" value="<?php echo $this->session->userdata['username'] ?>">
-              </div>
-              <div class="form-group col-md-4">
-                <label>Hak Akses</label>
-                <input type="text" class="form-control" id="role" value="<?php echo $this->session->userdata['role'] ?>">
-              </div>
-              <div class="form-group col-md-4">
-                <label>Nomor HP</label>
-                <input type="text" class="form-control" id="phone" value="<?php echo $this->session->userdata['phone'] ?>">
-              </div>
+            <div class="card-header">
+              <div class="card-title">Identitas Pekerja</div>
+              <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
 
-              <div class="form-group col-md-4">
-                <label>Departemen</label>
-                <input type="text" class="form-control" id="department" value="<?php echo $this->session->userdata['department'] ?>">
               </div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-md-4">
+                    <label>Nama Karyawan</label>
+                    <input type="text" class="form-control" name="name" value="<?php echo $this->session->userdata['name'] ?>">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>username</label>
+                    <input type="text" class="form-control" name="username" value="<?php echo $this->session->userdata['username'] ?>">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>password</label>
+                    <input type="password" class="form-control" name="password" value="<?php echo $this->session->userdata['password'] ?>">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Hak Akses</label>
+                    <input type="text" class="form-control" name="role" value="<?php echo $this->session->userdata['role'] ?>" disabled>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label>Nomor HP</label>
+                    <input type="text" class="form-control" name="phone" value="<?php echo $this->session->userdata['phone'] ?>">
+                  </div>
 
+                  <div class="form-group col-md-4">
+                    <label>Departemen</label>
+                    <input type="text" class="form-control" name="department" value="<?php echo $this->session->userdata['department'] ?>" disabled>
+                  </div>
+
+                </div>
+              </div>
+              <div class="card-footer">
+                <button type="submit" name="button" class="btn btn-success">Simpan</button>
+              </div>
             </div>
-          </div>
+          </form>
+
         </div>
+
       </div>
-
     </div>
-  </div>
 
-</div>
+  </div>
