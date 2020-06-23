@@ -11,8 +11,49 @@ class Master_model extends CI_Model
 
   public function contentDepartment()
   {
+    $data['department'] = $this->core_model->getAllData('department');
     $data['viewName'] = 'master/department';
     return $data;
+  }
+
+  public function contentEditDepartment($id)
+  {
+    $data['department'] = $this->core_model->getSingleData('department', 'id', $id);
+    $data['viewName'] = 'master/editDepartment';
+    return $data;
+  }
+
+  public function ContentaddDepartment()
+  {
+    $data['viewName'] = 'master/addDepartment';
+    return $data;
+  }
+
+  public function updateDepartment($id)
+  {
+    $data = array(
+      'name' => $this->input->post('name'),
+      'description' => $this->input->post('description'),
+    );
+    $this->db->where($where = array('id' => $id ));
+    $this->db->update('department', $data);
+    redirect(base_url('editDepartment/'.$id));
+  }
+
+  public function deleteDepartment($id)
+  {
+    $this->core_model->deleteData('department', 'id', $id);
+    redirect(base_url('department'));
+  }
+
+  public function createDepartment()
+  {
+    $data = array(
+      'name' => $this->input->post('name'),
+      'description' => $this->input->post('description'),
+    );
+    $this->db->insert('department', $data);
+    redirect(base_url('department'));
   }
 
 }

@@ -14,6 +14,29 @@ class Master extends CI_Controller {
 		$this->load->view('template', $this->master_model->contentDepartment());
 	}
 
+	public function addDepartment()
+	{
+		$this->load->view('template', $this->master_model->contentAddDepartment());
+	}
 
+	public function editDepartment($id)
+	{
+		$this->load->view('template', $this->master_model->contentEditDepartment($id));
+	}
+
+	public function updateDepartment($id)
+	{
+		$this->master_model->updateDepartment($id);
+	}
+
+	public function deleteDepartment($id)
+	{
+		$this->master_model->deleteDepartment($id);
+	}
+
+	public function createDepartment()
+	{
+		$this->master_model->createDepartment();
+	}
 
 }
