@@ -60,14 +60,14 @@ class Master_model extends CI_Model
   //EventType
   public function contentEventType()
   {
-    $data['eventType'] = $this->core_model->getAllData('eventType');
+    $data['eventType'] = $this->core_model->getAllData('eventtype');
     $data['viewName'] = 'master/eventType';
     return $data;
   }
 
   public function contentEditEventType($id)
   {
-    $data['eventType'] = $this->core_model->getSingleData('eventType', 'id', $id);
+    $data['eventType'] = $this->core_model->getSingleData('eventtype', 'id', $id);
     $data['viewName'] = 'master/editEventType';
     return $data;
   }
@@ -85,13 +85,13 @@ class Master_model extends CI_Model
     'description' => $this->input->post('description'),
     );
     $this->db->where($where = array('id' => $id ));
-    $this->db->update('eventType', $data);
+    $this->db->update('eventtype', $data);
     redirect(base_url('editEventType/'.$id));
   }
 
   public function deleteEventType($id)
   {
-    $this->core_model->deleteData('eventType', 'id', $id);
+    $this->core_model->deleteData('eventtype', 'id', $id);
     redirect(base_url('eventType'));
   }
 
@@ -101,7 +101,7 @@ class Master_model extends CI_Model
     'name' => $this->input->post('name'),
     'description' => $this->input->post('description'),
     );
-    $this->db->insert('eventType', $data);
+    $this->db->insert('eventtype', $data);
     redirect(base_url('eventType'));
   }
 
