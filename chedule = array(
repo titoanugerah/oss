@@ -1,0 +1,132 @@
+[33mcommit c6a67eccb416707218085401c93aecdc337c7916[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Merge: fd36774 705a06e
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 21:10:09 2020 -0700
+
+    fixed issue
+
+[33mcommit fd367748cf1426d32f8eaea2c30727b27bf87a19[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 21:07:31 2020 -0700
+
+    fixed typo issue
+
+[33mcommit 705a06e6834deb1820ab80213cd4edc491635514[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Wed Jun 24 04:57:38 2020 +0700
+
+    Added bug fixes
+
+[33mcommit 09f94b3bf92e9ef5506845e17b2732aa64819226[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Wed Jun 24 04:52:29 2020 +0700
+
+    Added some feature
+
+[33mcommit 08a4d43ae15bcbb504b684bdfa0065e982cf7583[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Wed Jun 24 04:06:07 2020 +0700
+
+    Added add event
+
+[33mcommit afbd175875ad764836c85b6993ba0275a499d370[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Wed Jun 24 03:31:35 2020 +0700
+
+    Added event view
+
+[33mcommit 69f17dcc3acd751943b44e33170815aa053e4291[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Wed Jun 24 02:43:34 2020 +0700
+
+    Added complete CRUD of alocation
+
+[33mcommit 9a227bdf935bc70dbef209ba0a9ac9997f1082bb[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Wed Jun 24 01:41:48 2020 +0700
+
+    Added complete CRUD of manpower
+
+[33mcommit 955fca486ca357ae9431e9a56fb6c61093a87aa5[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Wed Jun 24 01:13:37 2020 +0700
+
+    Added Event Type
+
+[33mcommit b2adaf514ba126ba0a5a53e8e84a79c1e99b9cb3[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Wed Jun 24 01:04:21 2020 +0700
+
+    Added department complete CRUD
+
+[33mcommit 56277d590b062db36400079bfa0d861ddf4980c4[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 23:38:46 2020 +0700
+
+    Added new menu for superadmin, added department
+
+[33mcommit cd220e7d3bce3c134f053cf72e4e9904a96857cd[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 23:27:29 2020 +0700
+
+    Added profiling updates
+
+[33mcommit 542e992ddc3229c873afcce3ee5b9d402dea7331[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 23:11:18 2020 +0700
+
+    Added profile
+
+[33mcommit 761aa88bced32d24aec8c5fb79f5c2eddb477ecb[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 22:50:16 2020 +0700
+
+    Added superadmin menu file
+
+[33mcommit 022dbeb7017be06145d038d9b3665dee767d4798[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 22:42:23 2020 +0700
+
+    Added login and logout system
+
+[33mcommit 500ec5a1279e46b47aa3dfba8497ed43b897e1f9[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 21:33:53 2020 +0700
+
+    Added template
+
+[33mcommit 22a559ebe2d1bf36552e62b927a0247150098de6[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 21:13:13 2020 +0700
+
+    Added general model, and 404 view notification
+
+[33mcommit 66d4ba697975158cd6df75cfd307be6813af87f5[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 21:06:12 2020 +0700
+
+    Added core model
+
+[33mcommit 54387626e76a5899b22c5275728e44743364f064[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 21:01:21 2020 +0700
+
+    Deleted config and database
+
+[33mcommit 90287fc74968d5ded348226bca46da7ff8ca111e[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 20:59:52 2020 +0700
+
+    Modify gitignore and added httacess
+
+[33mcommit 51277d0abc05b96ea09af11844390e0fa84d293c[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 20:53:07 2020 +0700
+
+    added atlantis and 404 template
+
+[33mcommit 7748715b547b82d5f271ecbd3ffcd90cd2cd08b6[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: titoanugerah <titoanugerah@student.undip.ac.id>
+Date:   Tue Jun 23 20:50:03 2020 +0700
+
+    Added ci framework

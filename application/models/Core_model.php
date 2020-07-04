@@ -18,6 +18,18 @@ class Core_model extends CI_Model
     return $data->row();
   }
 
+  public function getRandomData($table, $whereVar, $whereVal, $limit)
+  {
+    $this->db->order_by('rand()');
+    $this->db->limit($limit);
+    $data = $this->db->get_where($table, $where = array($whereVar => $whereVal));
+    if($limit==1) {
+      return $data->row();
+    } else {
+      return $data->result();
+    }
+  }
+
   public function getSomeData($table, $whereVar, $whereVal )
   {
     $list = $this->db->list_fields($table);

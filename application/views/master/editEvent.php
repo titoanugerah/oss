@@ -34,16 +34,16 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label>Waktu Mulai</label>
-                  <select class="form-control" name="start_time">
-                    <?php foreach ($event as $item): ?>
+                  <select class="form-control" name="start_id">
+                    <?php foreach ($schedule as $item): ?>
                       <option class="form-control" value="<?php echo $item->id ?>" <?php if($item->id == $event->start_id){ echo 'selected';} ?>><?php echo $item->day.' jam '.$item->start.' s/d '.$item->end; ?></option>
                     <?php endforeach; ?>
                   </select>
                 </div>
                 <div class="form-group col-md-4">
                   <label>Waktu Selesai</label>
-                  <select class="form-control" name="end_time">
-                    <?php foreach ($event as $item): ?>
+                  <select class="form-control" name="end_id">
+                    <?php foreach ($schedule as $item): ?>
                       <option class="form-control" value="<?php echo $item->id ?>" <?php if($item->id == $event->end_id){ echo 'selected';} ?>><?php echo $item->day.' jam '.$item->start.' s/d '.$item->end; ?></option>
                     <?php endforeach; ?>
                   </select>

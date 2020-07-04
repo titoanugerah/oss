@@ -45,6 +45,8 @@ $route['editEvent/(:any)'] = 'master/editEvent/$1';
 $route['updateEvent/(:any)'] = 'master/updateEvent/$1';
 $route['deleteEvent/(:any)'] = 'master/deleteEvent/$1';
 
+$route['schedule'] = 'master/schedule';
+$route['createSchedule'] = 'master/createSchedule';
 
 $route['404_override'] = 'general/error';
 $route['translate_uri_dashes'] = FALSE;
