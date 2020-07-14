@@ -16,35 +16,39 @@
       <div class="row">
 
         <div class="card full-height  col-md-12">
-
-          <div class="card-header">
-            <div class="card-title">Data Jadwal </div>
+        <div class="card-header">
+            <div class="card-title">Data Kegiatan</div>
             <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
             </div>
             <table  class="display datatable">
               <thead>
                 <tr>
-                  <th>No</th>
-                  <th>Nama Jadwal </th>
-                  <th>Departemen</th>
-                  <th>NO HP</th>
-                  <th>Opsi</th>
+                  <th>Hari</th>
+                  <th>Jam</th>
+                  <th>Nama Kegiatan</th>
+                  <th>PIC</th>
                 </tr>
               </thead>
               <tbody >
-                  <?php $i=1;foreach ($manpower as $item): ?>
+                  <?php $i=1;foreach ($event as $item): ?>
                     <tr>
-                      <th><?php echo $i; ?></th>
+                      <th><?php echo $item->day; ?></th>
+                      <th><?php echo $item->start.' s/d '.$item->end; ?></th>
                       <th><?php echo $item->name; ?></th>
-                      <th><?php echo $item->department; ?></th>
-                      <th><?php echo $item->phone; ?></th>
-                      <th><?php echo '<a class="btn btn-info" href="'.base_url('editManpower/'.$item->id).'">Edit</a>  '; ?></th>
+                      <th>
+                        <?php foreach($schedule as $a){
+                          if($a->event_id == $item->id){
+                            echo $a->name.', ';
+                          }
+                        } ?>
+                      </th>
 
                     </tr>
                   <?php $i++;endforeach; ?>
               </tbody>
             </table>
-          </div>
+
+
         </div>
       </div>
     </div>
