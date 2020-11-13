@@ -327,8 +327,8 @@ class Master_model extends CI_Model
 
   public function createSchedule()
   {
-//    $this->db->trans_begin();
-    var_dump($this->createEventSchedule());die;
+    $this->createEventSchedule();
+    redirect(base_url('schedule'));
   }
 
   public function dummy()
