@@ -5,7 +5,7 @@
         <h2 class="text-white pb-2 fw-bold">Jadwal </h2>
       </div>
       <div class="ml-md-auto py-2 py-md-0">
-        <!-- <a href="<?php echo base_url('createSchedule'); ?>" class="btn btn-white btn-border btn-round mr-2" >Buat Jadwal </a> -->
+        <a href="<?php echo base_url('createSchedule'); ?>" class="btn btn-white btn-border btn-round mr-2" >Buat Jadwal </a>
       </div>
     </div>
   </div>
