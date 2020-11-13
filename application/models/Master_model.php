@@ -328,7 +328,7 @@ class Master_model extends CI_Model
   public function createSchedule()
   {
     $this->createEventSchedule();
-    redirect(base_url('schedule'));
+    // redirect(base_url('schedule'));
   }
 
   public function dummy()
@@ -384,27 +384,27 @@ class Master_model extends CI_Model
     $this->db->query('truncate schedule');
     if($this->checkManpowerAvailability()){
       foreach($this->core_model->getAllData('view_event') as $event){
-        var_dump('event id '.$event->id);
+        //var_dump('event id '.$event->id);
   
         if($event->event_type_id==null){
-          var_dump('no event for event '.$event->id.', skipped');
+          //var_dump('no event for event '.$event->id.', skipped');
           continue;
 
         } else {
           $alocations =  $this->core_model->getSomeData('view_alocation', 'event_type_id', $event->event_type_id);        
           
           foreach ($alocations as $alocation) {
-            var_dump('alocation found for '.$alocation->department.' need '.$alocation->manpower_needed);
+            //var_dump('alocation found for '.$alocation->department.' need '.$alocation->manpower_needed);
               for ($i=1; $i <= $alocation->manpower_needed ; $i++) { 
-                var_dump('find manpower slot '.$i);
+                //var_dump('find manpower slot '.$i);
                 $currentManpower =  $this->db->query('select manpower_id from schedule where alocation_id= '.$alocation->id.' and slot = '.$i.' order by id desc limit 1 ');
                 if ($currentManpower->num_rows()==1) {
                   $manhourWeekly = $this->core_model->getSingleData('view_manhour_weekly', 'id', $currentManpower->row('manpower_id'));
                   $manhourDaily = $this->db->query('select * from view_manhour_daily where id = '.$currentManpower->row('manpower_id').' and day_id = '.$event->day_id);
-                  var_dump('manpower found '.$currentManpower->row('id'));
+                  //var_dump('manpower found '.$currentManpower->row('id'));
   
                   if($manhourWeekly->manhour < 40 && ($manhourDaily->num_rows()==0 || $manhourDaily->row('manhour')<8)){
-                    var_dump('manpower <40 and <8');
+                    //var_dump('manpower <40 and <8');
 
                     $schedule = array(
                       'event_id' => $event->id,
@@ -414,13 +414,13 @@ class Master_model extends CI_Model
                       'alocation_id' => $alocation->id  
                     );
                     $this->db->insert('schedule', $schedule);  
-                    var_dump('schedule created for id '.$this->db->insert_id());
+                    //var_dump('schedule created for id '.$this->db->insert_id());
 
                   } else {
-                    var_dump('manpower not <40 and <8, find another manpower');
+                    //var_dump('manpower not <40 and <8, find another manpower');
 
                     $manpower = $this->getRandomManpower($alocation->department_id, $event->day_id, $i);
-                    var_dump('found manpower '.$manpower->id);
+                    //var_dump('found manpower '.$manpower->id);
 
                     $schedule = array(
                       'event_id' => $event->id,
@@ -430,13 +430,13 @@ class Master_model extends CI_Model
                       'alocation_id' => $alocation->id  
                     );
                     $this->db->insert('schedule', $schedule);  
-                    var_dump('schedule created for id '.$this->db->insert_id());
+                    // var_dump('schedule created for id '.$this->db->insert_id());
 
                   }
                 } else  {
-                  var_dump('manpower not found ');
+                  // var_dump('manpower not found ');
                   $manpower = $this->getRandomManpower($alocation->department_id, 1, $i);
-                  var_dump('found new manpower '.$manpower->id);
+                  // var_dump('found new manpower '.$manpower->id);
 
                   $schedule = array(
                     'event_id' => $event->id,
@@ -446,7 +446,7 @@ class Master_model extends CI_Model
                     'alocation_id' => $alocation->id  
                   );
                   $this->db->insert('schedule', $schedule);
-                  var_dump('schedule created for id '.$this->db->insert_id());
+                  //var_dump('schedule created for id '.$this->db->insert_id());
                 }
               }
           } 
