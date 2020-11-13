@@ -452,6 +452,7 @@ class Master_model extends CI_Model
           } 
         }
       } 
+      redirect(base_url('schedule'));
     } else {
       $this->notify('Gagal', 'Jumlah pekerja tidak cukup', 'danger', 'fa fa-times', 'schedule');
     }
