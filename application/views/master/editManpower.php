@@ -27,15 +27,15 @@
                 <div class="row">
                   <div class="form-group col-md-4">
                     <label>Nama Karyawan</label>
-                    <input type="text" class="form-control" name="name" value="<?php echo $manpower->name; ?>">
+                    <input type="text" class="form-control" name="name" value="<?php echo $manpower->name; ?>" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Username</label>
-                    <input type="text" class="form-control" name="username" value="<?php echo $manpower->username; ?>">
+                    <input type="text" class="form-control" name="username" value="<?php echo $manpower->username; ?>" maxlength="8" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Password</label>
-                    <input type="password" class="form-control" name="password" value="<?php echo $manpower->password; ?>">
+                    <input type="password" class="form-control" name="password" value="<?php echo $manpower->password; ?>" maxlength="8" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Hak Akses</label>
@@ -47,7 +47,7 @@
                   </div>
                   <div class="form-group col-md-4">
                     <label>Nomor HP</label>
-                    <input type="text" class="form-control" name="phone" value="<?php echo $manpower->phone; ?>">
+                    <input type="text" class="form-control" name="phone" value="<?php echo $manpower->phone; ?>" required>
                   </div>
 
                   <div class="form-group col-md-4">

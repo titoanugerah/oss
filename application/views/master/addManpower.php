@@ -27,15 +27,15 @@
                 <div class="row">
                   <div class="form-group col-md-4">
                     <label>Nama Karyawan</label>
-                    <input type="text" class="form-control" name="name" value="">
+                    <input type="text" class="form-control" name="name" value="" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Username</label>
-                    <input type="text" class="form-control" name="username" value="">
+                    <input type="text" class="form-control" name="username" value="" maxlength="8" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Password</label>
-                    <input type="password" class="form-control" name="password" value="">
+                    <input type="password" class="form-control" name="password" value="" maxlength="8" required>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Hak Akses</label>
@@ -47,7 +47,7 @@
                   </div>
                   <div class="form-group col-md-4">
                     <label>Nomor HP</label>
-                    <input type="text" class="form-control" name="phone" value="">
+                    <input type="text" class="form-control" name="phone" value="" required>
                   </div>
 
                   <div class="form-group col-md-4">
