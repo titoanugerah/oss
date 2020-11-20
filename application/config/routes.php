@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$route['default_controller'] = 'general';
+$route['default_controller'] = 'master/schedule';
 $route['template'] = 'general/template';
 
 $route['login'] = 'general/login';
@@ -49,4 +49,5 @@ $route['schedule'] = 'master/schedule';
 $route['createSchedule'] = 'master/createSchedule';
 
 $route['404_override'] = 'general/error';
+$route['unauthorized'] = 'general/unauthorized';
 $route['translate_uri_dashes'] = FALSE;

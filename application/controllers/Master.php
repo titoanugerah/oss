@@ -11,7 +11,12 @@ class Master extends CI_Controller {
 
 	public function department()
 	{
-		$this->load->view('template', $this->master_model->contentDepartment());
+		if($this->session->userdata('role_id')==1)
+		{
+			$this->load->view('template', $this->master_model->contentDepartment());
+		} else {
+			redirect(base_url('unauthorized'));
+		}
 	}
 
 	public function addDepartment()
@@ -43,7 +48,12 @@ class Master extends CI_Controller {
 
 	public function eventType()
 	{
-		$this->load->view('template', $this->master_model->contentEventType());
+		if($this->session->userdata('role_id')==1)
+		{
+			$this->load->view('template', $this->master_model->contentEventType());
+		} else {
+			redirect(base_url('unauthorized'));
+		}
 	}
 
 	public function addEventType()
@@ -74,7 +84,13 @@ class Master extends CI_Controller {
 	//manpower
 	public function manpower()
 	{
-		$this->load->view('template', $this->master_model->contentManpower());
+		if($this->session->userdata('role_id')==1)
+		{
+			$this->load->view('template', $this->master_model->contentManpower());
+		} else {
+			redirect(base_url('unauthorized'));
+		}
+
 	}
 
 	public function addManpower()
@@ -105,7 +121,12 @@ class Master extends CI_Controller {
 	//alocation
 	public function alocation()
 	{
-		$this->load->view('template', $this->master_model->contentAlocation());
+		if($this->session->userdata('role_id')==1)
+		{
+			$this->load->view('template', $this->master_model->contentAlocation());
+		} else {
+			redirect(base_url('unauthorized'));
+		}
 	}
 
 	public function addAlocation()
@@ -136,7 +157,12 @@ class Master extends CI_Controller {
 	//event
 	public function event()
 	{
-		$this->load->view('template', $this->master_model->contentEvent());
+		if($this->session->userdata('role_id')==1 || $this->session->userdata('role_id')==2)
+		{
+			$this->load->view('template', $this->master_model->contentEvent());
+		} else {
+			redirect(base_url('unauthorized'));
+		}
 	}
 
 	public function addEvent()
@@ -171,7 +197,13 @@ class Master extends CI_Controller {
 
 	public function createSchedule()
 	{
-		$this->master_model->createSchedule();
+		if($this->session->userdata('role_id')==1 || $this->session->userdata('role_id')==2)
+		{
+			$this->master_model->createSchedule();
+		} else {
+			redirect(base_url('unauthorized'));
+		}
+
 	}
 
 }
