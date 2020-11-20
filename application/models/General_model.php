@@ -30,7 +30,7 @@ class General_model extends CI_Model
       redirect(base_url(''));
     }
     else {
-      return http_response_code(403);
+      notify('Gagal', 'Username atau password anda salah, silahkan periksa kembali', 'danger', 'fa fa-times', 'dashboard');
     }
   }
 

@@ -1,8 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$route['default_controller'] = 'master/schedule';
+$route['default_controller'] = 'general';
 $route['template'] = 'general/template';
+
+$route['dashboard'] = 'general';
+
 
 $route['login'] = 'general/login';
 $route['logout'] = 'general/logout';
