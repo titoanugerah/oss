@@ -272,7 +272,8 @@ class Master_model extends CI_Model
   public function contentAddEvent()
   {
     $data['viewName'] = 'master/addEvent';
-    $data['event'] = $this->core_model->getAllData('view_event');
+//    $data['event'] = $this->core_model->getAllData('view_event');
+    $data['event'] = ($this->db->query('select * from view_event where event_type_id=null'))->result();  
     $data['eventType'] = $this->core_model->getAllData('eventtype');
     return $data;
   }
