@@ -143,7 +143,7 @@ class Master_model extends CI_Model
     );
     $this->db->where($where = array('id' => $id ));
     $this->db->update('manpower', $data);
-    redirect(base_url('manpower'.$id));
+    redirect(base_url('manpower/'.$id));
   }
 
   public function deleteManpower($id)
