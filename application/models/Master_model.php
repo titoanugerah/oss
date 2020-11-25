@@ -312,9 +312,10 @@ class Master_model extends CI_Model
 	}
 
 
+
   public function deleteEvent($id)
   {
-    $this->core_model->deleteData('event', 'id', $id);
+    $this->db->query('update event set name="", remark="", event_type_id="" where id = '.$id);
     redirect(base_url('event'));
   }
 
