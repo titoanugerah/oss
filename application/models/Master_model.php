@@ -258,7 +258,7 @@ class Master_model extends CI_Model
   {
 //    $data['event'] = $this->core_model->getSingleData('view_detail_event', 'id', $id);
     $data['id'] = $id;
-      $query = "SET sql_mode = 'ONLY_FULL_GROUP_BY'";    
+      $query = " SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))";    
       $this->db->query($query);
     $query = 'select * from view_detail_event where start_id<='.$id.' and end_id>='.$id;
     $data['query'] = $this->db->query($query);
