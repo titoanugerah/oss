@@ -190,6 +190,12 @@ class Master extends CI_Controller {
 		$this->master_model->deleteEvent($id);
 	}
 
+
+	public function resetEvent()
+	{
+		$this->master_model->resetEvent();
+	}
+
 	#schedule
 	public function schedule(){
 		$this->load->view('template', $this->master_model->contentSchedule());

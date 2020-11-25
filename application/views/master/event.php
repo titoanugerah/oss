@@ -6,6 +6,7 @@
       </div>
       <div class="ml-md-auto py-2 py-md-0">
         <a href="<?php echo base_url('addEvent'); ?>" class="btn btn-white btn-border btn-round mr-2" >Tambah Kegiatan</a>
+        <a href="<?php echo base_url('resetEvent'); ?>" class="btn btn-white btn-border btn-round mr-2" >Reset Kegiatan</a>
       </div>
     </div>
   </div>

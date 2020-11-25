@@ -26,6 +26,7 @@ $route['createEventType'] = 'master/createEventType';
 $route['editEventType/(:any)'] = 'master/editEventType/$1';
 $route['updateEventType/(:any)'] = 'master/updateEventType/$1';
 $route['deleteEventType/(:any)'] = 'master/deleteEventType/$1';
+$route['resetEvent'] = 'master/resetEvent';
 
 $route['manpower'] = 'master/manpower';
 $route['addManpower'] = 'master/addManpower';
