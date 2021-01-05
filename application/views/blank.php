@@ -1,5 +1,5 @@
 <center>
-    <h1>Sistem Penjadwalan Kegiatan Kluster Penida 2</h1>
+    <h1>Agenda Kegiatan Hari Ini</h1>
 
 </center>
 
