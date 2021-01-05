@@ -240,6 +240,7 @@ if(file_exists('./assets/script/'.$viewName.'.js'))
 	$(document).ready(function() {
 		$('.js-example-basic-single').select2();
 		$('.select2-modal').select2();
+		$('#exampleModal').modal('show');
 	});
 	$('.datatable').DataTable({
 //		"order" : "asc"
