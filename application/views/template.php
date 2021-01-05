@@ -33,7 +33,7 @@
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="red">
 				<a href="<?php echo base_url(''); ?>" class="logo" style="color:white;">
-					OS System
+					Cluster Penida 2
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
