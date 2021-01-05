@@ -11,7 +11,7 @@ class General extends CI_Controller {
 
 	public function index()
 	{
-		$data['viewName'] = 'Beranda';
+		$data['viewName'] = 'beranda';
 		$day = date('N');
 		$query = $this->db->query("Select * from view_event where day_id = $day");
 		$data['event'] = $query->result();
