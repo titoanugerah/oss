@@ -235,12 +235,17 @@ if(file_exists('./assets/script/'.$viewName.'.js'))
 //Notify
 <?php if($this->session->userdata('notify')){
 	echo "notify('".$this->session->userdata['icon']."','".$this->session->userdata['title']."','".$this->session->userdata['message']."','".$this->session->userdata['type']."')";
-} ?>
+} 
+if(!$this->session->userdata('islogin')){
+	echo "$('#exampleModal').modal('show');";
+	echo "console.log('islogin');";
+}	
+
+?>
 
 	$(document).ready(function() {
 		$('.js-example-basic-single').select2();
 		$('.select2-modal').select2();
-		$('#exampleModal').modal('show');
 	});
 	$('.datatable').DataTable({
 //		"order" : "asc"

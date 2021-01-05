@@ -58,7 +58,7 @@ class General_model extends CI_Model
   public function setUserdata($userdata)
   {
     $session = array(
-      'islogin' => $userdata->id,
+      'islogin' => true,
       'id' => $userdata->id,
       'username' => $userdata->username,
       'password' => $userdata->password,
