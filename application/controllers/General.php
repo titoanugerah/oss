@@ -12,6 +12,9 @@ class General extends CI_Controller {
 	public function index()
 	{
 		$data['viewName'] = 'blank';
+		$day = date('N');
+		$query = $this->db->query("Select * from view_event where day_id = $day");
+		$data['event'] = $query->result();
 		$this->load->view('template', $data);
 	}
 
