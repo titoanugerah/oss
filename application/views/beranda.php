@@ -1,5 +1,6 @@
 <center>
     <h1>Agenda Kegiatan Hari Ini</h1>
+    <h3><?php echo date('d-M-Y')?></h3>
 
 </center>
 
