@@ -465,8 +465,10 @@ class Master_model extends CI_Model
           } 
         }
       } 
-      redirect(base_url('schedule'));
-    } else {
+ //     redirect(base_url('schedule'));
+ $this->notify('Sukses', 'Jadwal berhasil dibuat', 'success', 'fa fa-check', 'schedule');
+ 
+} else {
       $this->notify('Gagal', 'Jumlah pekerja tidak cukup', 'danger', 'fa fa-times', 'schedule');
     }
   }
