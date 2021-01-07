@@ -394,14 +394,15 @@ class Master_model extends CI_Model
   public function createEventSchedule()
   {
     $this->db->query('truncate schedule');
+    $this->db->query("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
     if($this->checkManpowerAvailability()){
       foreach($this->core_model->getAllData('view_event') as $event){
         //var_dump('event id '.$event->id);
-  
+        
         if($event->event_type_id==null){
           //var_dump('no event for event '.$event->id.', skipped');
           continue;
-
+          
         } else {
           $alocations =  $this->core_model->getSomeData('view_alocation', 'event_type_id', $event->event_type_id);        
           
@@ -474,6 +475,8 @@ class Master_model extends CI_Model
 
   public function checkManpowerAvailability()
   {
+    $this->db->query("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
+
     if ($this->core_model->getNumRows('view_capacity', 'is_reliable', 0)==0) {
       return true;
     } else {
