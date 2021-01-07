@@ -266,6 +266,7 @@ class Master_model extends CI_Model
     $data['schedule'] = $this->core_model->getAllData('view_event');
     $data['eventType'] = $this->core_model->getAllData('eventtype');
     $data['viewName'] = 'master/editEvent';
+    var_dump($data['event']);die;
     return $data;
   }
 
