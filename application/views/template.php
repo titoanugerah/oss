@@ -52,16 +52,16 @@
 			<!-- Navbar Header -->
 			<nav class="navbar navbar-header navbar-expand-lg" data-background-color="red2">
 
-				<div class="container-fluid">
-					<div class="collapse" id="search-nav">
-						<div class="navbar-left navbar-form nav-search mr-md-3">
+				<div class="container-fluid" >
+					<div class="collapse" id="search-nav" hidden>
+						<div class="navbar-left navbar-form nav-search mr-md-3"hidden>
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<button type="submit" class="btn btn-search pr-1">
 										<i class="fa fa-search search-icon"></i>
 									</button>
 								</div>
-								<input type="text" placeholder="Search ..." id="keyword" class="form-control">
+								<input type="text" placeholder="Search ..." id="keyword" class="form-control" >
 							</div>
 						</div>
 					</div>
