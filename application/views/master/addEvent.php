@@ -53,7 +53,7 @@
                   <input type="text" name="name" value="" class="form-control">
                 </div>
                 <div class="form-group col-md-8">
-                  <label>Keterangan</label>
+                <label>Penyelenggara</label>
                   <input type="text" name="remark" value="" class="form-control">
                 </div>
 

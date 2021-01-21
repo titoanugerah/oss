@@ -53,7 +53,7 @@
                   <input type="text" name="name" value="<?php echo $event->name; ?>" class="form-control">
                 </div>
                 <div class="form-group col-md-8">
-                  <label>Keterangan</label>
+                  <label>Penyelenggara</label>
                   <input type="text" name="remark" value="<?php echo $event->remark; ?>" class="form-control">
                 </div>
 

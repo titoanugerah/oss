@@ -260,7 +260,7 @@ class Master_model extends CI_Model
     $data['id'] = $id;
       $query = " SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))";    
       $this->db->query($query);
-    $query = 'select * from view_detail_event where start_id<='.$id.' and end_id>='.$id;
+    $query = 'select * from view_detail_event where (start_id<='.$id.' and end_id>='.$id.") or (start_id=$id or  end_id=$id)";
     $data['query'] = $this->db->query($query);
     $data['event'] = $data['query']->row();
     $data['schedule'] = $this->core_model->getAllData('view_event');
@@ -304,10 +304,17 @@ class Master_model extends CI_Model
     redirect(base_url('event'));
   }
 
-  
+  public function finishEvent($id)
+  {
+    $event = $this->core_model->getSingleData('event', 'id', $id);
+    $this->db->query('update event set isfinish=1 where name = "'.$event->name.'"');
+    redirect(base_url('event'));
+
+  }
+
 	public function resetEvent()
 	{
-    $this->db->query('update event set name="", remark="", event_type_id=""');
+    $this->db->query('update event set name="", remark="", event_type_id="", isfinish=0');
     redirect(base_url('event'));
 	}
 
@@ -339,56 +346,11 @@ class Master_model extends CI_Model
 
   public function createSchedule()
   {
-    $this->createEventSchedule();
-    // redirect(base_url('schedule'));
-  }
+   $this->createEventSchedule();
+    // $this->db->query('truncate schedule');
+    // $this->db->query("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
+    
 
-  public function dummy()
-  {
-//         foreach($manpowerAlocations as $manpowerAlocation){
-//           for ($i=1; $i<=$manpowerAlocation->manpower_needed ; $i+1) { 
-// //            $latestManpower = $this->core_model->getNumRows('schedule', )
-//             $latestManpower = $this->db->query('select manpower_id from schedule where event_id = ('.$event->id.'- 1) and  alocation_id= '.$manpowerAlocation->id.' and slot = '.$i.' order by id desc limit 1 ');
-//             if($latestManpower->num_rows()==1){
-//               $manhour_daily = $this->core_model->getSingleData('view_manhour_daily', 'manpower_id', $latestManpower->row('manpower_id'));
-//               $manhour_weekly = $this->core_model->getSingleData('view_manhour_weekly', 'manpower_id',$latestManpower->row('manpower_id'));
-//               if($manhour_daily->manhour<8&&$manhour_weekly->manhour<=40){
-//                 $schedule = array(
-//                   'event_id' => $event->id,
-//                   'slot' => $i,
-//                   'manpower_id' => $latestManpower->row('manpower_id'),
-//                   'alocation_id' => $manpowerAlocation->id  
-//                 );
-//                 $this->db->insert('schedule', $schedule);
-//               } else {
-//                 $newManpower = $this->getRandomManpower($manpowerAlocation->department_id, 1);                
-//                 $manhour_weekly = $this->core_model->getSingleData('view_manhour_weekly', 'manpower_id', $newManpower->id);
-//                 $schedule = array(
-//                   'event_id' => $event->id,
-//                   'slot' => $i,
-//                   'manpower_id' => $latestManpower->row('manpower_id'),
-//                   'alocation_id' => $manpowerAlocation->id  
-//                 );
-//                 $this->db->insert('schedule', $schedule);                               
-//               }
-//             } else {
-//               $newManpower = $this->getRandomManpower($manpowerAlocation->department_id, 1);                
-//               $manhour_weekly = $this->core_model->getSingleData('view_manhour_weekly', 'manpower_id', $newManpower->id);
-//               if($manhour_weekly->manhour<=40){
-//                 $schedule = array(
-//                   'event_id' => $event->id,
-//                   'slot' => $i,
-//                   'manpower_id' => $newManpower->id,
-//                   'alocation_id' => $manpowerAlocation->id  
-//                 );
-//                 $this->db->insert('schedule', $schedule);
-//             }
-//                 // $i++;  
-          
-//           }
-//       }
-//     }
-//   }
   }
 
   public function createEventSchedule()
@@ -407,14 +369,11 @@ class Master_model extends CI_Model
           $alocations =  $this->core_model->getSomeData('view_alocation', 'event_type_id', $event->event_type_id);        
           
           foreach ($alocations as $alocation) {
-            //var_dump('alocation found for '.$alocation->department.' need '.$alocation->manpower_needed);
               for ($i=1; $i <= $alocation->manpower_needed ; $i++) { 
-                //var_dump('find manpower slot '.$i);
-                $currentManpower =  $this->db->query('select manpower_id from schedule where alocation_id= '.$alocation->id.' and slot = '.$i.' order by id desc limit 1 ');
+                $currentManpower =  $this->db->query('select manpower_id from schedule where alocation_id = '.$alocation->id.' and slot = '.$i.' order by id desc limit 1 ');
                 if ($currentManpower->num_rows()==1) {
                   $manhourWeekly = $this->core_model->getSingleData('view_manhour_weekly', 'id', $currentManpower->row('manpower_id'));
                   $manhourDaily = $this->db->query('select * from view_manhour_daily where id = '.$currentManpower->row('manpower_id').' and day_id = '.$event->day_id);
-                  //var_dump('manpower found '.$currentManpower->row('id'));
   
                   if($manhourWeekly->manhour < 40 && ($manhourDaily->num_rows()==0 || $manhourDaily->row('manhour')<8)){
                     //var_dump('manpower <40 and <8');
@@ -448,8 +407,13 @@ class Master_model extends CI_Model
                   }
                 } else  {
                   // var_dump('manpower not found ');
+                  $slot = $i - 1;
+                  $currentManpower =  $this->db->query('select manpower_id from schedule where alocation_id = '.$alocation->id.' and slot = '.$slot.' order by id desc limit 1 ');
                   $manpower = $this->getRandomManpower($alocation->department_id, 1, $i);
                   // var_dump('found new manpower '.$manpower->id);
+                 while($manpower->id == $currentManpower->row('manpower_id') ){
+                  $manpower = $this->getRandomManpower($alocation->department_id, 1, $i);                   
+                 }
 
                   $schedule = array(
                     'event_id' => $event->id,

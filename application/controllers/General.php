@@ -13,8 +13,12 @@ class General extends CI_Controller {
 	{
 		$data['viewName'] = 'beranda';
 		$day = date('N');
-		$query = $this->db->query("Select * from view_event where day_id = $day");
+		// $query = $this->db->query("Select * from view_dashboard_1 where day_id = $day");
+		$query = $this->db->query("select id, name, min(day) as startday, max(day) endday, min(start) starttime, max(end) as endtime, isfinish, remark from view_dashboard_1 group by Name  ");
 		$data['event'] = $query->result();
+		$query = $this->db->query("select id, name, min(day) as startday, max(day) endday, min(start) starttime, max(end) as endtime, isfinish, remark from view_dashboard_1 where day_id = $day group by Name  ");
+		$data['event1'] = $query->result();
+		$data['schedule'] = $this->core_model->getAllData('view_schedule');
 		$this->load->view('template', $data);
 	}
 

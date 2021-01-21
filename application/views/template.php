@@ -232,24 +232,35 @@ if(file_exists('./assets/script/'.$viewName.'.js'))
 ?>
 
 <script type="text/javascript">
+var islogin;
 //Notify
 <?php if($this->session->userdata('notify')){
 	echo "notify('".$this->session->userdata['icon']."','".$this->session->userdata['title']."','".$this->session->userdata['message']."','".$this->session->userdata['type']."')";
 } 
 if(!$this->session->userdata('islogin')){
-	echo "$('#exampleModal').modal('show');";
+	echo "islogin=false;";
 	echo "console.log('islogin');";
+}else{
+	echo "islogin=true;";
+
 }	
 
 ?>
 
 	$(document).ready(function() {
+		if(!islogin){
+			$('.btn-toggle').click();
+			$('#exampleModal').modal('show');
+		}
 		$('.js-example-basic-single').select2();
 		$('.select2-modal').select2();
 	});
+
 	$('.datatable').DataTable({
-//		"order" : "asc"
-"order": [[ 5, "asc" ]]
+	 "order": [ 5, "asc" ]
+	});
+	$('.datatable1').DataTable({
+		"order": [ 0, "desc" ]
 	});
 
 </script>
