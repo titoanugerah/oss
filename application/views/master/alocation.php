@@ -25,7 +25,7 @@
               <thead>
                 <tr>
                   <th>No</th>
-                  <th>Jenis Kegiatan</th>
+                  <!-- <th>Jenis Kegiatan</th> -->
                   <th>Tipe Kegiatan</th>
                   <th>Departemen</th>
                   <th>Alokasi Pekerja per Jam</th>
@@ -36,7 +36,6 @@
                   <?php $i=1;foreach ($alocation as $item): ?>
                     <tr>
                       <th><?php echo $i; ?></th>
-                      <th><?php if ($item->is_daily_job==1){echo 'Wajib';} else {echo 'Tidak Wajib';} ?></th>
                       <th><?php echo $item->event_type; ?></th>
                       <th><?php echo $item->department; ?></th>
                       <th><?php echo $item->manpower_needed; ?></th>
