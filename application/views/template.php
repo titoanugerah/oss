@@ -257,7 +257,7 @@ if(!$this->session->userdata('islogin')){
 	});
 
 	$('.datatable').DataTable({
-	 "order": [ 5, "asc" ]
+	 "order": [ 0, "asc" ]
 	});
 	$('.datatable1').DataTable({
 		"order": [ 0, "desc" ]

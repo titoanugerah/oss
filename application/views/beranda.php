@@ -12,7 +12,7 @@
 </div>
 <div class="page-inner mt--5">
   <div class="row mt--2">
-    <div class="col-md-5">
+    <div class="col-md-12">
       <div class="row">
         <div class="card full-height  col-md-12">
           <div class="card-header">
@@ -45,34 +45,33 @@
 
     </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <div class="col-md-6">
+    <div class="col-md-12">
       <div class="row">
         <div class="card full-height  col-md-12">
           <div class="card-header">
-            <div class="card-title">Jadwal Minggu Ini</div>
+            <div class="card-title">Jadwal Bulan Ini</div>
             <div class="d-flex flex-wrap justify-content-around pb-2 pt-4"></div>
             <div class="card-body">
-              <table  class="display datatable1">
-                <thead>
-                  <tr>
-                    <th>Hari</th>
-                    <th>Jam</th>
-                    <th>Nama Kegiatan</th>
-                    <th>Status</th>
-
-                  </tr>
-                </thead>
-                <tbody >
-                  <?php foreach ($event as $item):  ?>
-                  <tr>
-                  <th><?php echo $item->startday; ?></th>
-                    <th><?php echo $item->starttime.' s/d '.$item->endtime; ?></th>
-                    <th><?php echo "<a data-toggle ='modal' data-target='#examplemodal$item->id'> $item->name </a>"; ?></th>
-                    <th><?php if($item->isfinish==0){echo "Belum terlaksana"; } else {echo "Sudah Terlaksana";} ?></th>
-                  </tr>
-                  <?php endforeach; ?>
-                </tbody>
-              </table>
+            <table  class="display datatable">
+              <thead>
+                <tr>
+                  <th>Jadwal</th>
+                  <th>Nama Kegiatan</th>
+                  <th>Panitia</th>
+                  <th>Tipe Kegiatan</th>
+                </tr>
+              </thead>
+              <tbody >
+                  <?php $i=1;foreach ($history as $item): ?>
+                    <tr>
+                      <th><?php echo $item->date.', '.$item->start_time.' s/d '.$item->end_time; ?></th>
+                      <th><?php echo $item->name; ?></th>
+                      <th><?php echo $item->remark; ?></th>
+                      <th><?php echo $item->event_type; ?></th>
+                    </tr>
+                  <?php $i++;endforeach; ?>
+              </tbody>
+            </table>
             </div>
           </div>
         </div>
