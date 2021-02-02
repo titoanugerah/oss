@@ -18,7 +18,7 @@ class General extends CI_Controller {
 		$data['event'] = $query->result();
 		$query = $this->db->query("select id, name, min(day) as startday, max(day) endday, min(start) starttime, max(end) as endtime, isfinish, remark from view_dashboard_1 where day_id = $day group by Name  ");
 		$data['event1'] = $query->result();
-		$data['history'] = $this->core_model->getAllData('view_history');
+		$data['history'] = ($this->db->query('select * from view_history where month(date) = month(now())'))->result();
 		$this->load->view('template', $data);
 	}
 
