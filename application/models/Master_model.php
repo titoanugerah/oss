@@ -315,9 +315,87 @@ class Master_model extends CI_Model
 	public function resetEvent()
 	{
     $this->db->query('update event set name="", remark="", event_type_id="", isfinish=0');
+    $a = $this->db->query('select * from view_history where week(date) = week(now())');
+    $b = $a->result();
+    foreach($b as $item){
+      for($i = $item->start_id; $i <= $item->end_id; $i++){
+        $data = array(
+          'name' => $item->name,
+          'remark' => $item->remark,
+          'event_type_id' => $item->event_type_id,          
+        );
+        $this->db->where( array('id' => $i));
+        $this->db->update('event', $data);        
+      }
+    }
     redirect(base_url('event'));
 	}
 
+  //history
+  public function contentHistory()
+  {
+    $data['history'] = $this->core_model->getAllData('view_history');
+    $data['viewName'] = 'master/history';
+    return $data;
+  }
+
+  public function contentEditHistory($id)
+  {
+//    $data['history'] = $this->core_model->getSingleData('view_detail_history', 'id', $id);
+    $data['id'] = $id;
+      $query = " SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))";    
+      $this->db->query($query);
+    $query = "select * from view_history where id = $id";
+    $data['query'] = $this->db->query($query);
+    $data['history'] = $data['query']->row();
+    $data['schedule'] = $this->core_model->getAllData('view_event');
+    $data['eventType'] = $this->core_model->getAllData('eventType');
+    $data['viewName'] = 'master/editHistory';
+    return $data;
+  }
+
+  public function contentAddHistory()
+  {
+    $data['viewName'] = 'master/addHistory';
+//    $data['history'] = $this->core_model->getAllData('view_history');
+$data['event'] = ($this->db->query('select * from view_event '))->result();  
+$data['eventType'] = $this->core_model->getAllData('eventtype');
+return $data;
+  }
+
+  public function updateHistory($id)
+  {
+    $input = $this->input->post();
+    $this->db->where(array('id' => $id));
+    $this->db->update('history', $input);
+    redirect(base_url('history'));
+  }
+
+  public function finishHistory($id)
+  {
+    $history = $this->core_model->getSingleData('history', 'id', $id);
+    $this->db->query('update history set isfinish=1 where name = "'.$history->name.'"');
+    redirect(base_url('history'));
+
+  }
+
+	public function resetHistory()
+	{
+    $this->db->query('update history set name="", remark="", history_type_id="", isfinish=0');
+    redirect(base_url('history'));
+	}
+
+  public function createHistory()
+  {
+    $this->db->insert('history', $this->input->post());
+    redirect(base_url('history'));
+  }
+
+  public function deleteHistory($id)
+  {
+    $this->db->delete('history', array('id' => $id));
+    redirect(base_url('history'));
+  }
 
 
   public function deleteEvent($id)

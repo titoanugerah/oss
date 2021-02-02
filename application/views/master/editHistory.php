@@ -21,13 +21,13 @@
             <div class="card-title">Data Kegiatan</div>
             <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
             </div>
-            <form class="" action="<?php echo base_url('updateEvent/'.$id); ?>" method="post">
+            <form class="" action="<?php echo base_url('updateHistory/'.$id); ?>" method="post">
             <div class="card-body">
               <div class="row">
                 <div class="form-group col-md-4">
                   <label>Tipe Kegiatan</label>
                   <select class="form-control" name="event_type_id">
-                    <?php foreach ($historyType as $item): ?>
+                    <?php foreach ($eventType as $item): ?>
                       <option class="form-control" value="<?php echo $item->id ?>" <?php if($item->id == $history->event_type_id){ echo 'selected';} ?>><?php echo $item->name; ?></option>
                     <?php endforeach; ?>
                   </select>
@@ -58,15 +58,15 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label>Tanggal</label>
-                  <input type="date" name="dateEvent" value="" class="form-control">
+                  <input type="date" name="date" value="<?php echo $history->date; ?>" class="form-control">
                 </div>
 
 
               </div>
             </div>
             <div class="card-footer">
-              <button type="submit" name="button" class="btn btn-success">Simpan</button>
-              <a class="btn btn-grey" href="<?php echo base_url('event') ?>">Kembali</a>
+              <button type="submit" class="btn btn-success">Simpan</button>
+              <a class="btn btn-grey" href="<?php echo base_url('history') ?>">Kembali</a>
             </div>
           </form>
 

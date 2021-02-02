@@ -50,6 +50,15 @@ $route['updateEvent/(:any)'] = 'master/updateEvent/$1';
 $route['deleteEvent/(:any)'] = 'master/deleteEvent/$1';
 $route['finishEvent/(:any)'] = 'master/finishEvent/$1';
 
+$route['history'] = 'master/history';
+$route['addHistory'] = 'master/addHistory';
+$route['createHistory'] = 'master/createHistory';
+$route['editHistory/(:any)'] = 'master/editHistory/$1';
+$route['updateHistory/(:any)'] = 'master/updateHistory/$1';
+$route['deleteHistory/(:any)'] = 'master/deleteHistory/$1';
+$route['finishHistory/(:any)'] = 'master/finishHistory/$1';
+
+
 $route['schedule'] = 'master/schedule';
 $route['createSchedule'] = 'master/createSchedule';
 

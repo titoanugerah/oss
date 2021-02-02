@@ -202,6 +202,55 @@ class Master extends CI_Controller {
 		$this->master_model->resetEvent();
 	}
 
+	//history
+	public function history()
+	{
+		if($this->session->userdata('role_id')==1 || $this->session->userdata('role_id')==2)
+		{
+			$this->load->view('template', $this->master_model->contentHistory());
+		} else {
+			redirect(base_url('unauthorized'));
+		}
+	}
+
+	public function addHistory()
+	{
+		$this->load->view('template', $this->master_model->contentAddHistory());
+	}
+
+	public function createHistory()
+	{
+		 $this->master_model->createHistory();
+	}
+
+	public function editHistory($id)
+	{
+		$this->load->view('template', $this->master_model->contentEditHistory($id));
+	}
+
+	public function updateHistory($id)
+	{
+		$this->master_model->updateHistory($id);
+	}
+
+	public function finishHistory($id)
+	{
+		$this->master_model->finishHistory($id);
+	}
+
+
+	public function deleteHistory($id)
+	{
+		$this->master_model->deleteHistory($id);
+	}
+
+
+	public function resetHistory()
+	{
+		$this->master_model->resetHistory();
+	}
+
+
 	#schedule
 	public function schedule(){
 		$this->load->view('template', $this->master_model->contentSchedule());

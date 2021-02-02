@@ -5,7 +5,7 @@
         <h2 class="text-white pb-2 fw-bold">Kegiatan</h2>
       </div>
       <div class="ml-md-auto py-2 py-md-0">
-        <a href="<?php echo base_url('resetEvent'); ?>" class="btn btn-white btn-border btn-round mr-2" >Perbarui Kegiatan</a>
+        <a href="<?php echo base_url('addHistory'); ?>" class="btn btn-white btn-border btn-round mr-2" >Tambah Kegiatan</a>
       </div>
     </div>
   </div>
@@ -24,21 +24,21 @@
             <table  class="display datatable">
               <thead>
                 <tr>
-                  <th>Hari</th>
-                  <th>Jam</th>
+                  <th>Jadwal</th>
                   <th>Nama Kegiatan</th>
+                  <th>Panitia</th>
                   <th>Tipe Kegiatan</th>
-                  <!-- <th>Opsi</th> -->
+                  <th>Opsi</th>
                 </tr>
               </thead>
               <tbody >
-                  <?php $i=1;foreach ($event as $item): ?>
+                  <?php $i=1;foreach ($history as $item): ?>
                     <tr>
-                      <th><?php echo $item->day; ?></th>
-                      <th><?php echo $item->start.' s/d '.$item->end; ?></th>
+                      <th><?php echo $item->date.', '.$item->start_time.' s/d '.$item->end_time; ?></th>
                       <th><?php echo $item->name; ?></th>
+                      <th><?php echo $item->remark; ?></th>
                       <th><?php echo $item->event_type; ?></th>
-                      <!-- <th><?php if($item->name!=""){echo '<a class="btn btn-info" href="'.base_url('editEvent/'.$item->id).'">Edit</a>  '.'<a class="btn btn-danger" href="'.base_url('deleteEvent/'.$item->id).'">Hapus</a>  '; } if ($item->event_type!="" && $item->isfinish == 0){echo '<a class="btn btn-success" href="'.base_url('finishEvent/'.$item->id).'">Selesai</a> ';} ?></th> -->
+                      <th><?php if($item->name!=""){echo '<a class="btn btn-info" href="'.base_url('editHistory/'.$item->id).'">Edit</a>  '.'<a class="btn btn-danger" href="'.base_url('deleteHistory/'.$item->id).'">Hapus</a>  '; } ?></th>
 
                     </tr>
                   <?php $i++;endforeach; ?>
