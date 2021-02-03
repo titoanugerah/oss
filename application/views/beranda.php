@@ -31,7 +31,7 @@
                   <?php foreach ($event1 as $item):  ?>
                   <tr>
                     <th><?php echo $item->starttime.' s/d '.$item->endtime; ?></th>
-                    <th><?php echo "<a data-toggle ='modal' data-target='#examplemodal$item->id'> $item->name </a>"; ?></th>
+                    <th><?php echo "<a data-toggle ='modal' data-target='#examplemodals$item->id'> $item->name </a>"; ?></th>
                     <th><?php if($item->isfinish==0){echo "Belum terlaksana"; } else {echo "Sudah Terlaksana";} ?></th>
                     
                   </tr>
@@ -44,7 +44,7 @@
       </div>
 
     </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="col-md-12">
       <div class="row">
         <div class="card full-height  col-md-12">
@@ -121,6 +121,51 @@
         <br>  
         <?php echo 'Penyelenggara : '.$item->remark;?>
         <br>  
+      <br>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"  >OK</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<?php endforeach; ?>
+
+<?php foreach ($event as $item):  ?>
+
+<div class="modal fade" id="examplemodals<?php echo $item->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detail Kegiatan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <?php echo $item->name;?>
+        <br>  
+        <?php echo $item->startday.','.$item->starttime.' - '.$item->endtime ;?>
+        <br>  
+        <?php echo 'Penyelenggara : '.$item->remark;?>
+        <br>  
+        <?php echo 'Status : '.$item->isfinish==1?"Sudah Terlaksana":"Belum Terlaksana";?>
+        <br>
+        Petugas : 
+        <?php 
+          foreach($schedule as $sch){
+            if($sch->event_id == $item->id){
+              echo $sch->name.' ,';
+            } else {
+              continue;
+            }
+          }
+        ?>
+
       <br>
 
 

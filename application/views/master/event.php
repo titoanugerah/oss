@@ -28,7 +28,7 @@
                   <th>Jam</th>
                   <th>Nama Kegiatan</th>
                   <th>Tipe Kegiatan</th>
-                  <!-- <th>Opsi</th> -->
+                  <th>Opsi</th>
                 </tr>
               </thead>
               <tbody >
@@ -38,7 +38,7 @@
                       <th><?php echo $item->start.' s/d '.$item->end; ?></th>
                       <th><?php echo $item->name; ?></th>
                       <th><?php echo $item->event_type; ?></th>
-                      <!-- <th><?php if($item->name!=""){echo '<a class="btn btn-info" href="'.base_url('editEvent/'.$item->id).'">Edit</a>  '.'<a class="btn btn-danger" href="'.base_url('deleteEvent/'.$item->id).'">Hapus</a>  '; } if ($item->event_type!="" && $item->isfinish == 0){echo '<a class="btn btn-success" href="'.base_url('finishEvent/'.$item->id).'">Selesai</a> ';} ?></th> -->
+                      <th><?php if ($item->event_type!="" && $item->isfinish == 0){echo '<a class="btn btn-success" href="'.base_url('finishEvent/'.$item->id).'">Selesai</a> ';} ?></th>
 
                     </tr>
                   <?php $i++;endforeach; ?>
