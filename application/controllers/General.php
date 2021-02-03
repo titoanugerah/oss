@@ -40,6 +40,12 @@ class General extends CI_Controller {
 		$this->load->view('errors/404');
 	}
 
+	public function errorlogin()
+	{
+		$this->load->view('errors/402');
+	}
+
+
 	public function unauthorized()
 	{
 		$this->load->view('errors/401');

@@ -63,5 +63,6 @@ $route['schedule'] = 'master/schedule';
 $route['createSchedule'] = 'master/createSchedule';
 
 $route['404_override'] = 'general/error';
+$route['errorlogin'] = 'general/errorlogin';
 $route['unauthorized'] = 'general/unauthorized';
 $route['translate_uri_dashes'] = FALSE;
