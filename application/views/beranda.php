@@ -25,6 +25,7 @@
                     <th>Jam</th>
                     <th>Nama Kegiatan</th>
                     <th>Status</th>
+                    <th>Opsi</th>
                   </tr>
                 </thead>
                 <tbody >
@@ -33,7 +34,8 @@
                     <th><?php echo $item->starttime.' s/d '.$item->endtime; ?></th>
                     <th><?php echo "<a data-toggle ='modal' data-target='#examplemodals$item->id'> $item->name </a>"; ?></th>
                     <th><?php if($item->isfinish==0){echo "Belum terlaksana"; } else {echo "Sudah Terlaksana";} ?></th>
-                    
+                    <th><button type="button" data-toggle="modal" data-target="#examplemodals<?php echo $item->id; ?>" class="btn btn-info">Detail</button></th>
+
                   </tr>
                   <?php endforeach; ?>
                 </tbody>
