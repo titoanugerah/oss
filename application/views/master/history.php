@@ -21,7 +21,7 @@
             <div class="card-title">Data Kegiatan</div>
             <div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
             </div>
-            <table  class="display datatable">
+            <table  class="display datatable1">
               <thead>
                 <tr>
                   <th>Jadwal</th>

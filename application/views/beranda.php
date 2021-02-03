@@ -16,7 +16,7 @@
       <div class="row">
         <div class="card full-height  col-md-12">
           <div class="card-header">
-            <div class="card-title">Jadwal Hari Ini</div>
+            <div class="card-title">Jadwal Hari Ini (<?php echo date('d-M-Y'); ?>) </div>
             <div class="d-flex flex-wrap justify-content-around pb-2 pt-4"></div>
             <div class="card-body">
               <table  class="display datatable1">
@@ -52,13 +52,14 @@
             <div class="card-title">Jadwal Bulan Ini</div>
             <div class="d-flex flex-wrap justify-content-around pb-2 pt-4"></div>
             <div class="card-body">
-            <table  class="display datatable">
+            <table  class="display datatable1">
               <thead>
                 <tr>
                   <th>Jadwal</th>
                   <th>Nama Kegiatan</th>
                   <th>Panitia</th>
                   <th>Tipe Kegiatan</th>
+                  <th>Opsi</th>
                 </tr>
               </thead>
               <tbody >
@@ -68,6 +69,7 @@
                       <th><?php echo $item->name; ?></th>
                       <th><?php echo $item->remark; ?></th>
                       <th><?php echo $item->event_type; ?></th>
+                      <th><button type="button" data-toggle="modal" data-target="#examplemodal<?php echo $item->id; ?>" class="btn btn-info">Detail</button></th>
                     </tr>
                   <?php $i++;endforeach; ?>
               </tbody>
@@ -94,14 +96,14 @@
           <p>Selamat datang lalalala</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >OK</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
 </div>
 
-<?php foreach ($event as $item):  ?>
+<?php foreach ($history as $item):  ?>
 
 <div class="modal fade" id="examplemodal<?php echo $item->id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -115,27 +117,16 @@
       <div class="modal-body">
         <?php echo $item->name;?>
         <br>  
-        <?php echo $item->startday.','.$item->starttime.' - '.$item->endtime ;?>
+        <?php echo $item->start_day.','.$item->start_time.' - '.$item->end_time ;?>
         <br>  
-        <?php echo 'Penyelenggara '.$item->remark;?>
+        <?php echo 'Penyelenggara : '.$item->remark;?>
         <br>  
-        PIC : 
-          <?php foreach($schedule as $a){
-            if($a->event_id == $item->id){
-              echo $a->name.', ';
-            }
-          } ?>
       <br>
-        <?php
-
-        if($item->isfinish==1){echo "Status : sudah selesai";}
-        elseif($item->isfinish==0){echo "Status : belum mulai/sedang berjalan";}
-          ?>
 
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"  >OK</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
