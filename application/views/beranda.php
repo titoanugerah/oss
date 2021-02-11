@@ -48,12 +48,37 @@
     </div>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <div class="col-md-12">
+
       <div class="row">
         <div class="card full-height  col-md-12">
           <div class="card-header">
-            <div class="card-title">Jadwal Bulan Ini</div>
+            <div class="card-title">Jadwal Per Bulan</div>
             <div class="d-flex flex-wrap justify-content-around pb-2 pt-4"></div>
             <div class="card-body">
+          <form method="post">
+            <div class="form-group">
+              <label for="">Pilih Bulan</label>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+
+              <select name="month" value="">
+                <option value="01" <?php if(date('m')=="01"){echo 'selected';} ?>>Januari</option>
+                <option value="02" <?php if(date('m')=="02"){echo 'selected';} ?>>Februari</option>
+                <option value="03" <?php if(date('m')=="03"){echo 'selected';} ?>>Maret</option>
+                <option value="04" <?php if(date('m')=="04"){echo 'selected';} ?>>April</option>
+                <option value="05" <?php if(date('m')=="05"){echo 'selected';} ?>>Mei</option>
+                <option value="06" <?php if(date('m')=="06"){echo 'selected';} ?>>Juni</option>
+                <option value="07" <?php if(date('m')=="07"){echo 'selected';} ?>>Juli</option>
+                <option value="08" <?php if(date('m')=="08"){echo 'selected';} ?>>Agustus</option>
+                <option value="09" <?php if(date('m')=="09"){echo 'selected';} ?>>September</option>
+                <option value="10" <?php if(date('m')=="10"){echo 'selected';} ?>>Oktober</option>
+                <option value="11" <?php if(date('m')=="11"){echo 'selected';} ?>>November</option>
+                <option value="12" <?php if(date('m')=="12"){echo 'selected';} ?>>Desember</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <button type='submit' name='findByMonth' value='findByMonth' class="btn btn-info btn-sm">Cari</button>
+            </div>
+          </form>
+          
             <table  class="display datatable1">
               <thead>
                 <tr>
@@ -71,7 +96,7 @@
                       <th><?php echo $item->name; ?></th>
                       <th><?php echo $item->remark; ?></th>
                       <th><?php echo $item->event_type; ?></th>
-                      <th><button type="button" data-toggle="modal" data-target="#examplemodal<?php echo $item->id; ?>" class="btn btn-info">Detail</button></th>
+                      <th><button type="button" data-toggle="modal" data-target="#examplemodal<?php echo $item->id; ?>" class="btn btn-info">Detail</button> <a class="btn btn-danger" href=" <?php echo base_url('deleteHistory/'.$item->id); ?>">Hapus</a>   </th>
                     </tr>
                   <?php $i++;endforeach; ?>
               </tbody>
