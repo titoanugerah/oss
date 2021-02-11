@@ -33,8 +33,8 @@
                   <tr>
                     <th><?php echo $item->starttime.' s/d '.$item->endtime; ?></th>
                     <th><?php echo "<a data-toggle ='modal' data-target='#examplemodals$item->id'> $item->name </a>"; ?></th>
-                    <th><?php if($item->isfinish==0){echo "Belum terlaksana"; } else {echo "Sudah Terlaksana";} ?></th>
-                    <th><button type="button" data-toggle="modal" data-target="#examplemodals<?php echo $item->id; ?>" class="btn btn-info">Detail</button></th>
+                    <th><?php if($item->isfinish==0){echo "Belum terlaksana"; } elseif($item->isfinish==1) {echo "Sudah Terlaksana";} else {echo 'Dibatalkan';} ?></th>
+                    <th><button type="button" data-toggle="modal" data-target="#examplemodals<?php echo $item->id; ?>" class="btn btn-info">Detail</button>  </th>
 
                   </tr>
                   <?php endforeach; ?>
@@ -75,6 +75,13 @@
                 <option value="12" <?php if(date('m')=="12"){echo 'selected';} ?>>Desember</option>
               </select>
               &nbsp;&nbsp;&nbsp;&nbsp;
+              <select name="year" value="">
+                <option value="2020" <?php if(date('Y')=="2020"){echo 'selected';} ?>>2020</option>
+                <option value="2021" <?php if(date('Y')=="2021"){echo 'selected';} ?>>2021</option>
+                <option value="2022" <?php if(date('Y')=="2022"){echo 'selected';} ?>>2022</option>
+              </select>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+
               <button type='submit' name='findByMonth' value='findByMonth' class="btn btn-info btn-sm">Cari</button>
             </div>
           </form>

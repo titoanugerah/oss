@@ -312,6 +312,14 @@ class Master_model extends CI_Model
 
   }
 
+  public function cancelEvent($id)
+  {
+    $event = $this->core_model->getSingleData('event', 'id', $id);
+    $this->db->query('update event set isfinish=2 where name = "'.$event->name.'"');
+    redirect(base_url('event'));
+
+  }
+
 	public function resetEvent()
 	{
     $this->db->query('update event set name="", remark="", event_type_id="", isfinish=0');
@@ -436,7 +444,7 @@ return $data;
     $this->db->query('truncate schedule');
     $this->db->query("SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));");
     if($this->checkManpowerAvailability()){
-      foreach($this->core_model->getAllData('view_event') as $event){
+      foreach(($this->db->query('select * from view_event where isfinish < 2'))->result() as $event){
         //var_dump('event id '.$event->id);
         
         if($event->event_type_id==null){

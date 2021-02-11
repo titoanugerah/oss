@@ -20,10 +20,9 @@ class General extends CI_Controller {
 		$query = $this->db->query("select * from view_schedule ");
 		$data['schedule'] = $query->result();	
 		if($this->input->post('findByMonth')){
-			$data['history'] = ($this->db->query('select * from view_history where month(date) = '.$this->input->post('month')))->result();
-
+			$data['history'] = ($this->db->query('select * from view_history where month(date) = '.$this->input->post('month').' and year(date) = '.$this->input->post('year')))->result();
 		} else {
-			$data['history'] = ($this->db->query('select * from view_history where month(date) = month(now())'))->result();
+			$data['history'] = ($this->db->query('select * from view_history where month(date) = month(now()) and year(date) = year(now())'))->result();
 		}
 		$this->load->view('template', $data);
 	}

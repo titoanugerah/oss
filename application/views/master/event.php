@@ -38,7 +38,7 @@
                       <th><?php echo $item->start.' s/d '.$item->end; ?></th>
                       <th><?php echo $item->name; ?></th>
                       <th><?php echo $item->event_type; ?></th>
-                      <th><?php if ($item->event_type!="" && $item->isfinish == 0){echo '<a class="btn btn-success" href="'.base_url('finishEvent/'.$item->id).'">Selesai</a> ';} ?></th>
+                    <th><?php if ($item->event_type!="" && $item->isfinish == 0){echo '<a class="btn btn-success" href="'.base_url('finishEvent/'.$item->id).'">Selesai</a>  <a class="btn btn-danger" href="'.base_url('cancelEvent/'.$item->id).'" ">Batalkan</a>' ;} ?> </th>
 
                     </tr>
                   <?php $i++;endforeach; ?>

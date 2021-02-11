@@ -49,6 +49,7 @@ $route['editEvent/(:any)'] = 'master/editEvent/$1';
 $route['updateEvent/(:any)'] = 'master/updateEvent/$1';
 $route['deleteEvent/(:any)'] = 'master/deleteEvent/$1';
 $route['finishEvent/(:any)'] = 'master/finishEvent/$1';
+$route['cancelEvent/(:any)'] = 'master/cancelEvent/$1';
 
 $route['history'] = 'master/history';
 $route['addHistory'] = 'master/addHistory';

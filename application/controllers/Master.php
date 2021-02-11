@@ -185,6 +185,13 @@ class Master extends CI_Controller {
 		$this->master_model->updateEvent($id);
 	}
 
+
+	public function cancelEvent($id)
+	{
+		$this->master_model->cancelEvent($id);
+	}
+
+
 	public function finishEvent($id)
 	{
 		$this->master_model->finishEvent($id);
@@ -238,6 +245,7 @@ class Master extends CI_Controller {
 		$this->master_model->finishHistory($id);
 	}
 
+	
 
 	public function deleteHistory($id)
 	{
