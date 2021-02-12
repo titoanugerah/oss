@@ -75,11 +75,7 @@
                 <option value="12" <?php if(date('m')=="12"){echo 'selected';} ?>>Desember</option>
               </select>
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <select name="year" value="">
-                <option value="2020" <?php if(date('Y')=="2020"){echo 'selected';} ?>>2020</option>
-                <option value="2021" <?php if(date('Y')=="2021"){echo 'selected';} ?>>2021</option>
-                <option value="2022" <?php if(date('Y')=="2022"){echo 'selected';} ?>>2022</option>
-              </select>
+              <input type="text" class="form-control" name="year">
               &nbsp;&nbsp;&nbsp;&nbsp;
 
               <button type='submit' name='findByMonth' value='findByMonth' class="btn btn-info btn-sm">Cari</button>
@@ -187,7 +183,7 @@
         <br>  
         <?php echo 'Penyelenggara : '.$item->remark;?>
         <br>  
-        <?php echo 'Status : '.$item->isfinish==1?"Sudah Terlaksana":"Belum Terlaksana";?>
+        <?php echo 'Status : '.$item->isfinish==2?"Dibatalkan": ($item->isfinish==1?"Sudah Terlaksana": "Belum Terlaksana");?>
         <br>
         Petugas : 
         <?php 
